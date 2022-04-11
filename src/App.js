@@ -1,14 +1,13 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { fetchUser } from './services/constants'
-import UserSummary from './components/UserDetail';
+import UserDetail from './components/UserDetail';
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState([])
 
- async function refreshUser(e){
-   //e.preventDefault();
+ async function refreshUser(){
     try {
       const fetchData = await fetchUser();
       console.log(fetchData);
@@ -27,11 +26,11 @@ function App() {
     <div className="App">
       <header>Random User App</header>
           <div className='main'>
-          <button onClick={(e)=>refreshUser(e)}>Refresh</button>
+          <button onClick={()=>refreshUser()}>Refresh</button>
           <div className='render-data'>
           {  
               (currentUser || []).map((element,index)=>{
-                    return <UserSummary
+                    return <UserDetail
                       data = {element}
                       key = {index}
                     />

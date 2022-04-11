@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function UserSummary(props) {
+function UserDetail(props) {
     //name, email,street, city, state, username and image(bonus)
     //name -> title,first,last
     //email -> email
@@ -20,7 +20,7 @@ function UserSummary(props) {
   return (
     <div>
         {(props.data !== null)?
-            <div className="userSummary-div1">
+            <div className="userDetail-div1">
               <div className="first-output">
                 <h3>{props.data.name.title}. {props.data.name.last} {props.data.name.first}</h3>
                 <h4><span>Email</span>: {props.data.email}</h4>
@@ -49,10 +49,9 @@ function UserSummary(props) {
                     : null
                 }
                 {/* name, email, street, city, state, and username, medium image */}
-            </div>: "There is no user data"}
-          
+            </div>: "There is no user data"}   
     </div>
   )
 }
 
-export default UserSummary;
+export default UserDetail;
